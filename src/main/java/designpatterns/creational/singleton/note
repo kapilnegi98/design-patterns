@@ -1,0 +1,54 @@
+
+there are multiple ways to break this singleton e.g.
+Reflections
+Serialize and Deserialiser
+
+Enum is the best / unbreakable way to create singleton.
+
+
+In Java, the initialization of enum constants is lazy. Enum constants are only initialized
+when they are accessed for the first time, and this initialization is thread-safe.
+
+Reflection:
+Constructor Access:
+Without using an enum, a singleton class typically has a private constructor to prevent external
+instantiation. However, using reflection, it is possible to set the accessibility of the constructor to
+ true and create a new instance of the class.
+
+Using an enum for the singleton prevents this type of reflection attack because enum constructors are implicitly
+private and cannot be made accessible.
+
+Field Modification:
+Reflection allows access to private fields and methods. Without using an enum, if the singleton instance is
+stored in a field, it is possible to modify that field using reflection.
+
+Enum instances cannot be modified or created externally, which adds a level of security against this type of
+ reflection-based attack.
+
+ Serialization:
+ When an enum is used to implement a singleton, Java ensures that enum constants are only instantiated once during
+ the classloading process. This inherent property of enums makes them suitable for singletons and addresses some of the challenges associated with serialization:
+
+ Guaranteed Single Instance: Enum instances are guaranteed to be singletons, and there is no way to create
+ additional instances through reflection or any other means. This ensures that the singleton pattern is maintained
+  during serialization and deserialization.
+
+ Preservation of Singleton State: During the serialization process, the enum instance's state is captured
+  in the byte stream. When the byte stream is deserialized, the enum constants are recreated, and the singleton state is preserved.
+
+
+In class based singleton:
+Sometimes in distributed systems, we need to implement Serializable interface in the singleton class so
+ that we can store its state in the file system and retrieve it at a later point in time.
+The problem with serialized singleton class is that whenever we deserialize it,
+it will create a new instance of the class.
+This can be resolved by  Implementing readResolve method:
+
+
+https://www.digitalocean.com/community/tutorials/java-singleton-design-pattern-best-practices-examples
+
+
+
+https://dzone.com/articles/java-singletons-using-enum
+when serializing an enum, field variables are not getting serialized.
+For example, if we serialize and deserialize the SingletonEnum class, we will lose the value of the int value field .

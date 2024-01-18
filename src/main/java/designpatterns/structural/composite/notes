@@ -1,0 +1,21 @@
+1. Composite is a structural design pattern that lets you compose objects into tree structures and then work with these
+structures as if they were individual objects.
+
+2. Using the Composite pattern makes sense only when the core model of your app can be represented as a tree.
+   For example, imagine that you have two types of objects: Products and Boxes. A Box can contain several Products as well
+   as a number of smaller Boxes.  These little Boxes can also hold some Products or even smaller Boxes, and so on.
+
+ 3.
+    Use the pattern when you want the client code to treat both simple and complex elements uniformly.
+    Use the Composite pattern when you have to implement a tree-like object structure.
+
+
+ 4. Pros
+    You can work with complex tree structures more conveniently: use polymorphism and recursion to your advantage.
+    Open/Closed Principle. You can introduce new element types into the app without breaking the existing code,
+    which now works with the object tree.
+    COns:
+    It might be difficult to provide a common interface for classes whose functionality differs too much.
+
+Other example:
+https://www.digitalocean.com/community/tutorials/composite-design-pattern-in-java

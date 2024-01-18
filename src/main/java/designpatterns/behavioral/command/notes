@@ -1,0 +1,23 @@
+Command is a behavioral design pattern that turns a request into a stand-alone object that contains all
+information about the request.
+
+Use the Command pattern when you want to parametrize objects with operations.
+ you can pass commands as method arguments,
+    store them inside other objects, switch linked commands at runtime, etc.
+
+Here’s an example: you’re developing a GUI component such as a context menu, and you want your
+users to be able to configure menu items that trigger operations when an end user clicks an item.
+
+Use the Command pattern when you want to queue operations, schedule their execution, or execute them remotely.
+    As with any other object, a command can be serialized, which means converting it to a string that can be easily
+     written to a file or a database. Later, the string can be restored as the initial command object.
+     Thus, you can delay and schedule command execution. But there’s even more!
+     In the same way, you can queue, log or send commands over the network.
+
+Use the Command pattern when you want to implement reversible operations. undo/redo
+
+ pros:
+ Single Responsibility Principle. You can decouple classes that invoke operations from classes
+ that perform these operations.
+  Open/Closed Principle. You can introduce new commands into the app without breaking existing client code.
+  You can implement undo/redo.

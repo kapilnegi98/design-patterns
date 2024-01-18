@@ -1,0 +1,25 @@
+Decorator is a structural design pattern that lets you attach new behaviors to objects by placing these objects inside
+special wrapper objects that contain the behaviors.
+
+Why needed?
+Lets say you have pizza interface and different types of pizza implements that interface/abstract classes.
+Now different customers need different toppings. Now you can create different subclasses for different pizza + toppings combinations.
+That would lead to class explosion, creating subclass for each combination.
+
+other examples can be: Car assemble, coffee shop etc.
+
+Use the Decorator pattern when you need to be able to assign extra behaviors to objects at runtime without
+
+ breaking the code that uses these objects.
+
+ PROS:
+ You can extend an object’s behavior without making a new subclass.
+  You can add or remove responsibilities from an object at runtime.
+  You can combine several behaviors by wrapping an object into multiple decorators.
+  Single Responsibility Principle. You can divide a monolithic class that implements many possible variants of
+   behavior into several smaller classes
+
+COns:
+ It’s hard to remove a specific wrapper from the wrappers stack.
+ It’s hard to implement a decorator in such a way that its behavior doesn’t depend on the order in the decorators stack.
+ The initial configuration code of layers might look pretty ugly.

@@ -1,0 +1,21 @@
+
+The factory method pattern loosens the coupling code by separating our Product‘s construction code from the code that uses this Product.
+Factory method is a creational design pattern. In Factory pattern, we create object without exposing the creation logic to the client.
+Useful for creation of objects that fall under the same categorization but still have different properties.
+Helps in hiding complexity.
+One has to start thinking ahead to implement this pattern.
+Applicability:
+Use the Factory Method when you don’t know beforehand the exact types and dependencies of the objects your code should work with.
+The Factory Method separates product construction code from the code that actually uses the product. Therefore it’s easier to extend the
+product construction code independently from the rest of the code.
+For example, to add a new product type to the app, you’ll only need to create a new creator subclass and override the factory method in it.
+
+Pros
+You avoid tight coupling between the creator and the concrete products.
+Single Responsibility Principle. You can move the product creation code into one place in the program, making the code easier to support.
+Open/Closed Principle. You can introduce new types of products into the program without breaking existing client code.
+
+Cons
+The code may become more complicated since you need to introduce a lot of new subclasses to implement the pattern.
+Not a pattern that can be refactored into. Its not like first we created the classes and objects and then trying to refactor it into factory pattern.
+It will require lot of code changes.
